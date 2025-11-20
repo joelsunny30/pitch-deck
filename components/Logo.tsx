@@ -9,44 +9,87 @@ interface LogoProps {
 export const Logo: React.FC<LogoProps> = ({ className = "", size = 40, showText = true }) => {
   return (
     <div className={`flex items-center gap-4 ${className}`}>
-      <svg 
-        width={size} 
-        height={size} 
-        viewBox="0 0 100 100" 
-        fill="none" 
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 100 100"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="filter drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
       >
-        <defs>
-          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#22d3ee" />
-            <stop offset="100%" stopColor="#06b6d4" />
-          </linearGradient>
-        </defs>
-        
         {/* Top Chevron */}
-        <path d="M50 12 L78 40 L68 50 L50 32 L32 50 L22 40 Z" fill="url(#logoGrad)" />
+        <path
+          d="M30 20 L50 10 L70 20"
+          stroke="url(#logoGrad)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+        
+        {/* Right Chevron */}
+        <path
+          d="M80 30 L90 50 L80 70"
+          stroke="url(#logoGrad)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
         
         {/* Bottom Chevron */}
-        <path d="M50 88 L78 60 L68 50 L50 68 L32 50 L22 60 Z" fill="url(#logoGrad)" />
+        <path
+          d="M70 80 L50 90 L30 80"
+          stroke="url(#logoGrad)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
         
-        {/* Left Diamond */}
-        <rect x="8" y="42" width="16" height="16" rx="1" transform="rotate(45 16 50)" fill="url(#logoGrad)" />
+        {/* Left Chevron */}
+        <path
+          d="M20 70 L10 50 L20 30"
+          stroke="url(#logoGrad)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
         
-        {/* Right Diamond */}
-        <rect x="76" y="42" width="16" height="16" rx="1" transform="rotate(45 84 50)" fill="url(#logoGrad)" />
+        {/* Corner Squares */}
+        <rect x="22" y="22" width="8" height="8" fill="#0B4D6B" rx="1" />
+        <rect x="70" y="22" width="8" height="8" fill="#0B4D6B" rx="1" />
+        <rect x="22" y="70" width="8" height="8" fill="#0B4D6B" rx="1" />
+        <rect x="70" y="70" width="8" height="8" fill="#0B4D6B" rx="1" />
         
         {/* Center Eye */}
-        <circle cx="50" cy="50" r="12" fill="url(#logoGrad)" />
-        <circle cx="50" cy="50" r="6" fill="#0a0a0a" />
-        <circle cx="53" cy="47" r="2.5" fill="white" opacity="0.9" />
+        <circle cx="50" cy="50" r="18" fill="url(#eyeGrad)" />
+        <circle cx="50" cy="50" r="12" fill="#0B1F2E" />
+        <circle cx="50" cy="50" r="7" fill="url(#pupilGrad)" />
+        <ellipse cx="53" cy="47" rx="3" ry="4" fill="#5FE3FF" opacity="0.8" />
+        
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#5FE3FF" />
+            <stop offset="100%" stopColor="#0B4D6B" />
+          </linearGradient>
+          <radialGradient id="eyeGrad">
+            <stop offset="0%" stopColor="#5FE3FF" />
+            <stop offset="100%" stopColor="#0B4D6B" />
+          </radialGradient>
+          <radialGradient id="pupilGrad">
+            <stop offset="0%" stopColor="#0B1F2E" />
+            <stop offset="100%" stopColor="#000000" />
+          </radialGradient>
+        </defs>
       </svg>
-      
       {showText && (
-        <span className="font-header font-bold tracking-[0.2em] text-white text-2xl leading-none relative top-[2px]">
-            AIMBOT
+        <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+          AIMBOT
         </span>
       )}
     </div>
   );
 };
+
+export default Logo;
