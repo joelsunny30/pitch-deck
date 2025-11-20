@@ -48,34 +48,31 @@ interface SlideData {
 const CoverSlide = () => (
   <div className="flex flex-col items-center justify-center h-full relative z-10">
     
-    {/* Ambient Background Glow */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-    <div className="flex flex-col items-center space-y-12 animate-fadeIn relative">
+    <div className="flex flex-col items-center justify-center relative z-20 animate-fadeIn">
       
-      {/* Logo Container with Glow */}
-      <div className="relative mb-2">
-          <div className="absolute inset-0 bg-brand-cyan/30 blur-[60px] rounded-full opacity-60"></div>
-          <Logo size={220} showText={false} />
+      {/* Logo Container */}
+      <div className="relative mb-8">
+          <Logo size={250} showText={false} />
       </div>
       
       {/* Main Title */}
-      <div className="text-center">
-        <h1 className="font-header text-[7rem] md:text-[9rem] font-bold tracking-tighter text-white leading-[0.8] flex flex-col md:block uppercase drop-shadow-2xl">
-          <span>AIMBOT </span>
-          <span className="text-brand-glow ml-0 md:ml-6 drop-shadow-[0_0_30px_rgba(34,211,238,0.6)]">AI</span>
+      <div className="text-center mb-8">
+        {/* Flex row ensures AIMBOT and AI are perfectly aligned relative to the center with an even gap */}
+        <h1 className="font-header text-[5rem] md:text-[8rem] font-bold tracking-tighter text-white leading-none flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 uppercase drop-shadow-2xl">
+          <span>AIMBOT</span>
+          <span className="text-brand-glow drop-shadow-[0_0_30px_rgba(34,211,238,0.6)]">AI</span>
         </h1>
         
         {/* Cyan Divider Line */}
-        <div className="h-[3px] w-40 mx-auto mt-12 bg-gradient-to-r from-transparent via-brand-cyan to-transparent shadow-[0_0_20px_rgba(6,182,212,0.8)]"></div>
+        <div className="h-[2px] w-32 mx-auto mt-8 bg-gradient-to-r from-transparent via-brand-cyan to-transparent shadow-[0_0_20px_rgba(6,182,212,0.8)]"></div>
       </div>
       
       {/* Subtitle */}
-      <div className="text-center space-y-3 pt-2">
-        <p className="text-2xl md:text-3xl text-gray-400 font-light tracking-wider">
+      <div className="text-center space-y-3">
+        <p className="text-xl md:text-2xl text-gray-400 font-light tracking-wider">
           The Intelligence & Execution Layer for
         </p>
-        <h3 className="text-3xl md:text-4xl text-white font-bold tracking-widest uppercase drop-shadow-lg">
+        <h3 className="text-2xl md:text-3xl text-white font-bold tracking-widest uppercase drop-shadow-lg">
           All Prediction Markets
         </h3>
       </div>
@@ -457,10 +454,15 @@ const GrantSlide = () => (
         <div className="relative w-48 h-48 mb-16">
             <div className="absolute inset-0 border border-brand-dim/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
             <div className="absolute inset-4 border border-brand-dim/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-brand-black/80 backdrop-blur-sm rounded-full border border-brand-cyan/30 shadow-[0_0_50px_rgba(6,182,212,0.15)] z-10">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-brand-black/80 backdrop-blur-sm rounded-full border border-brand-cyan/30 shadow-[0_0_50px_rgba(6,182,212,0.15)] z-10 p-4">
                 <span className="text-gray-500 text-[10px] font-mono uppercase tracking-widest mb-1">Powered By</span>
-                <span className="text-2xl font-bold text-white tracking-tight">OpenServ</span>
-                <span className="text-brand-glow text-xs tracking-wider mt-1 font-bold">ECOSYSTEM</span>
+                <img 
+                    src="https://raw.githubusercontent.com/joelsunny30/pitch-deck/main/tg_image_4093112379.png" 
+                    alt="OpenServ" 
+                    className="w-24 object-contain mb-1"
+                />
+                <span className="text-white font-bold tracking-widest text-sm leading-none mb-0.5">OPENSERV</span>
+                <span className="text-brand-glow text-[10px] tracking-wider font-bold opacity-80">ECOSYSTEM</span>
             </div>
             
             {/* Connecting Lines downwards */}
@@ -471,11 +473,11 @@ const GrantSlide = () => (
         <div className="grid grid-cols-3 gap-6 w-full max-w-5xl px-8">
              {[
                 { text: "$10k Grant", icon: Banknote, highlight: true },
-                { text: "GTM Expert Consultations", icon: Briefcase, highlight: false },
-                { text: "Wispr Subscription (Day 1)", icon: MessageSquare, highlight: false },
-                { text: "Custom Agent Dev Support", icon: Code, highlight: false },
-                { text: "Influencer Network (800k+)", icon: Share2, highlight: false },
-                { text: "$1k Community Incentive", icon: Gift, highlight: false }
+                { text: "GTM Expert Consultations", icon: Briefcase, highlight: true },
+                { text: "Wispr Subscription (Day 1)", icon: MessageSquare, highlight: true },
+                { text: "Custom Agent Dev Support", icon: Code, highlight: true },
+                { text: "Influencer Network (800k+)", icon: Share2, highlight: true },
+                { text: "$1k Community Incentive", icon: Gift, highlight: true }
              ].map((perk, i) => (
                  <div key={i} className={`
                     group relative p-6 rounded-xl border transition-all duration-300 flex flex-col items-center text-center gap-3 overflow-hidden
@@ -599,36 +601,37 @@ const VisionSlide = () => (
 );
 
 const ClosingSlide = () => (
-    <div className="grid grid-cols-12 h-full items-center">
-        <div className="col-span-6 space-y-8">
-            <Logo size={80} />
-            <div>
-                <h2 className="text-4xl font-bold text-white mb-2">Building the future of prediction trading.</h2>
-                <p className="text-xl text-brand-cyan font-mono">Your unfair edge.</p>
-            </div>
-            
-            <div className="pt-8 space-y-4">
-                <a href="https://x.com/Aimbot_AI" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 border border-white/10 rounded hover:bg-white/5 hover:border-brand-cyan/50 transition-all w-full max-w-md group">
-                    <Twitter className="text-gray-400 group-hover:text-white" />
-                    <span className="text-gray-300 group-hover:text-white">@Aimbot_AI</span>
-                    <ExternalLink size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-                <a href="https://t.me/AimBot_AI" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 border border-white/10 rounded hover:bg-white/5 hover:border-brand-cyan/50 transition-all w-full max-w-md group">
-                    <Send className="text-gray-400 group-hover:text-white" />
-                    <span className="text-gray-300 group-hover:text-white">t.me/AimBot_AI</span>
-                    <ExternalLink size={14} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-            </div>
+    <div className="flex flex-col items-center justify-center h-full max-w-4xl mx-auto text-center">
+        
+        <div className="mb-12 transform hover:scale-105 transition-transform duration-500">
+            <Logo size={120} />
+        </div>
+
+        <div className="space-y-6 mb-16">
+            <h2 className="text-5xl md:text-7xl font-bold text-white leading-none tracking-tight">
+                Building the future of <br/>
+                prediction trading.
+            </h2>
+            <p className="text-2xl md:text-3xl text-brand-cyan font-mono tracking-widest uppercase opacity-90">
+                Your unfair edge.
+            </p>
         </div>
         
-        <div className="col-span-6 flex items-center justify-center">
-            <div className="w-full max-w-md aspect-square bg-gradient-to-tr from-brand-dim/10 to-transparent rounded-full border border-white/5 flex items-center justify-center relative">
-                 <div className="absolute inset-0 rounded-full border border-brand-cyan/10 animate-[spin_30s_linear_infinite]"></div>
-                 <div className="text-center space-y-4">
-                     <div className="text-sm text-gray-500 uppercase tracking-widest">Get in touch</div>
-                     <CyberButton>Contact Founders</CyberButton>
-                 </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full px-8">
+            <a href="https://x.com/Aimbot_AI" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-4 p-8 border border-white/10 rounded-2xl hover:bg-brand-cyan/5 hover:border-brand-cyan/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all group bg-brand-black/40 backdrop-blur-sm">
+                <Twitter className="text-gray-400 group-hover:text-brand-cyan transition-colors" size={32} />
+                <span className="text-xl text-gray-300 group-hover:text-white font-bold tracking-wide">@Aimbot_AI</span>
+                <ExternalLink size={18} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-dim absolute right-6" />
+            </a>
+            <a href="https://t.me/AimBot_AI" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-4 p-8 border border-white/10 rounded-2xl hover:bg-brand-cyan/5 hover:border-brand-cyan/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.1)] transition-all group bg-brand-black/40 backdrop-blur-sm">
+                <Send className="text-gray-400 group-hover:text-brand-cyan transition-colors" size={32} />
+                <span className="text-xl text-gray-300 group-hover:text-white font-bold tracking-wide">t.me/AimBot_AI</span>
+                <ExternalLink size={18} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-dim absolute right-6" />
+            </a>
+        </div>
+
+        <div className="mt-16 text-brand-dim/40 text-sm font-mono">
+            // END OF TRANSMISSION
         </div>
     </div>
 );

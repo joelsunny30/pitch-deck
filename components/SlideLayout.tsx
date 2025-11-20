@@ -12,9 +12,6 @@ interface SlideLayoutProps {
 export const SlideLayout: React.FC<SlideLayoutProps> = ({ children, title, subtitle, slideNumber, totalSlides }) => {
   return (
     <div className="w-full h-full flex flex-col relative overflow-hidden bg-brand-black">
-      {/* Ambient Background - Very subtle */}
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-brand-cyan/5 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] bg-brand-cyan/5 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
       
       {/* Grid Overlay */}
       <div className="absolute inset-0 bg-[size:100px_100px] bg-cyber-grid opacity-5 pointer-events-none" />
@@ -68,10 +65,6 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({ children, title, subti
 
         <Logo size={36} />
         <div className="flex items-center gap-6">
-          <div className="hidden md:flex flex-col items-end">
-            <span className="text-brand-dim text-[10px] font-mono uppercase tracking-widest">Presentation</span>
-            <span className="text-white text-xs font-bold tracking-wider">SERIES A // 2025</span>
-          </div>
           <div className="h-8 w-[1px] bg-white/10"></div>
           <div className="w-8 h-8 rounded bg-brand-cyan/10 flex items-center justify-center border border-brand-cyan/20">
              <div className="w-2 h-2 bg-brand-glow rounded-full animate-pulse"></div>
