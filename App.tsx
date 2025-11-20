@@ -451,18 +451,25 @@ const CompetitiveEdgeSlide = () => (
 const GrantSlide = () => (
     <div className="flex flex-col items-center h-full py-6 justify-center">
         {/* Center Hub - Top Center */}
-        <div className="relative w-48 h-48 mb-16">
+        <div className="relative w-64 h-64 mb-12">
             <div className="absolute inset-0 border border-brand-dim/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
             <div className="absolute inset-4 border border-brand-dim/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-brand-black/80 backdrop-blur-sm rounded-full border border-brand-cyan/30 shadow-[0_0_50px_rgba(6,182,212,0.15)] z-10 p-4">
-                <span className="text-gray-500 text-[10px] font-mono uppercase tracking-widest mb-1">Powered By</span>
-                <img 
-                    src="https://raw.githubusercontent.com/joelsunny30/pitch-deck/main/tg_image_4093112379.png" 
-                    alt="OpenServ" 
-                    className="w-24 object-contain mb-1"
-                />
-                <span className="text-white font-bold tracking-widest text-sm leading-none mb-0.5">OPENSERV</span>
-                <span className="text-brand-glow text-[10px] tracking-wider font-bold opacity-80">ECOSYSTEM</span>
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-brand-black/90 backdrop-blur-xl rounded-full border border-brand-cyan/30 shadow-[0_0_40px_rgba(6,182,212,0.2)] z-10 p-2">
+                
+                <span className="text-brand-dim text-[10px] font-mono uppercase tracking-widest absolute top-6 opacity-60">Powered By</span>
+                
+                <div className="flex items-center justify-center w-full h-full pt-4 pb-8">
+                    <img 
+                        src="https://raw.githubusercontent.com/joelsunny30/pitch-deck/main/tg_image_4093112379.png" 
+                        alt="OpenServ" 
+                        className="w-44 h-44 object-contain drop-shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                    />
+                </div>
+                
+                <div className="flex flex-col items-center absolute bottom-6">
+                    <span className="text-white font-header font-bold tracking-[0.2em] text-xl leading-none drop-shadow-md">OPENSERV</span>
+                </div>
+
             </div>
             
             {/* Connecting Lines downwards */}
@@ -470,7 +477,7 @@ const GrantSlide = () => (
         </div>
         
         {/* Grid of Perks Underneath - Perfectly Aligned */}
-        <div className="grid grid-cols-3 gap-6 w-full max-w-5xl px-8">
+        <div className="grid grid-cols-3 gap-5 w-full max-w-5xl px-8">
              {[
                 { text: "$10k Grant", icon: Banknote, highlight: true },
                 { text: "GTM Expert Consultations", icon: Briefcase, highlight: true },
@@ -480,20 +487,20 @@ const GrantSlide = () => (
                 { text: "$1k Community Incentive", icon: Gift, highlight: true }
              ].map((perk, i) => (
                  <div key={i} className={`
-                    group relative p-6 rounded-xl border transition-all duration-300 flex flex-col items-center text-center gap-3 overflow-hidden
+                    group relative p-5 rounded-xl border transition-all duration-300 flex flex-col items-center text-center gap-2 overflow-hidden
                     ${perk.highlight 
-                        ? 'bg-brand-cyan/10 border-brand-cyan hover:bg-brand-cyan/20 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]' 
+                        ? 'bg-brand-cyan/5 border-brand-cyan/30 hover:bg-brand-cyan/10 hover:border-brand-cyan hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]' 
                         : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/30'
                     }
                  `}>
                      <div className={`
                         p-3 rounded-full mb-1 transition-colors
-                        ${perk.highlight ? 'bg-brand-glow/20 text-brand-glow' : 'bg-gray-800 text-gray-400 group-hover:text-white'}
+                        ${perk.highlight ? 'bg-brand-glow/10 text-brand-glow shadow-[0_0_10px_rgba(6,182,212,0.2)]' : 'bg-gray-800 text-gray-400 group-hover:text-white'}
                      `}>
-                        <perk.icon size={24} />
+                        <perk.icon size={24} strokeWidth={1.5} />
                      </div>
                      
-                     <span className={`text-lg font-medium ${perk.highlight ? 'text-white' : 'text-gray-300 group-hover:text-white'}`}>
+                     <span className={`text-base font-medium leading-tight ${perk.highlight ? 'text-gray-100' : 'text-gray-300 group-hover:text-white'}`}>
                         {perk.text}
                      </span>
                  </div>
